@@ -1,0 +1,41 @@
+body{
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+h1 {
+    text-align: center;
+}
+
+ .masa{
+    margin: auto;
+    width: 420px;
+    height: 380px;
+    background: rgba(65, 16, 16, 0.678);
+    position: relative;
+
+} 
+
+.console {
+    padding: 5px;
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    left: 30%;
+    top: 83%;
+    position: absolute;
+    border-radius: 50%;
+    background-color: green ;
+}
+
+.circle-hole{
+    top: 11%;
+    left: 20%;
+    background-color: black;
+}
