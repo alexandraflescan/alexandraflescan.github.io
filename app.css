@@ -3,19 +3,28 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-}
-h1 {
-    text-align: center;
+    height: 100%;
+    /* background-color: black;
+    color: white; */
+    margin: 0;
 }
 
+.game-title{
+    text-align: center;
+
+}
+.game-container{
+    width: 100%;
+    height: 100%;
+}
  .masa{
     margin: auto;
-    width: 420px;
-    height: 380px;
+    width: 80%;
+    height: 500px;
     background: rgba(65, 16, 16, 0.678);
     position: relative;
 
-} 
+}
 
 .console {
     padding: 5px;
@@ -25,13 +34,14 @@ h1 {
 }
 
 .circle {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     left: 30%;
     top: 83%;
     position: absolute;
     border-radius: 50%;
     background-color: green ;
+    border: 3px solid white;
 }
 
 .circle-hole{
@@ -39,3 +49,30 @@ h1 {
     left: 20%;
     background-color: black;
 }
+
+
+.bad1{
+    top: 45%;
+    left: 69%;
+    background-color: red;
+}
+.bad2{
+    top: 33%;
+    left: 35%;
+    background-color: red;
+}
+
+
+.knockout {
+    background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+    color: red;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: arial, helvetica;
+    width: 514px;
+    margin: auto;
+    text-align: center;
+  }
+  
