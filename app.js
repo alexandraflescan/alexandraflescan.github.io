@@ -1,10 +1,9 @@
-//Make the DIV element draggagle:
-var movingBall = document.getElementById("movingBall"); 
-var hole = document.getElementById("hole"); 
-
-var movingBallj = $("#movingBall");
-var holej = $("#hole");
-
+const movingBall = document.getElementById("movingBall"),
+      hole = document.getElementById("hole"),
+      movingBallj = $("#movingBall"),
+      holej = $("#winHole"),
+      loserHole = $(".loser"),
+      holes = $(".circle-hole");
 
 function dragElement(elmnt) {
  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -47,37 +46,67 @@ function dragElement(elmnt) {
  }
 
  function closeDragElement() {
-   var t = is_colliding(elmnt, holej) // should return whether they are touching
-   if (t) {
-    showSuccess()
-   }
-
+  var t; // should return whether they are touching
+  var circlesList = [];
+  let currentCircle;
+  $(".circle-hole").each(function() {
+    currentCircle = $("#" + $(this)[0].id);
+    t = is_colliding(elmnt, currentCircle)
+    if (t) {
+      if (currentCircle[0].id == holej[0].id) {
+        console.log("you won")
+        showSuccess()
+        return;
+      } else {
+        showFailure();
+        console.log("you lost")
+        return;
+      }
+      
+    }
+   console.log(t)
+    circlesList.push($(this)[0].id)  
+})
+ 
+  
 }
+
+
 
 function showSuccess() {
     $(".win-modal").modal('show');
+    $(".winning-text").show();
     elmnt.css("top", "20%");
     elmnt.css("left", "30%");
   }
+
+function showFailure() {
+  $(".win-modal").modal('show');
+  $(".losing-text").show();
+  elmnt.css("top", "20%");
+  elmnt.css("left", "30%");
+}
 }
 
-  dragElement(movingBallj);
+
+dragElement(movingBallj);
 
 
 
 
-var is_colliding = function( $div1, $div2 ) {
+var is_colliding = function( $movingBall, $hole ) {
+
  // Div 1 data
- var d1_offset             = $div1.offset();
- var d1_height             = $div1.outerHeight( true );
- var d1_width              = $div1.outerWidth( true );
+ var d1_offset             = $movingBall.offset();
+ var d1_height             = $movingBall.outerHeight( true );
+ var d1_width              = $movingBall.outerWidth( true );
  var d1_distance_from_top  = d1_offset.top + d1_height;
  var d1_distance_from_left = d1_offset.left + d1_width;
 
  // Div 2 data
- var d2_offset             = $div2.offset();
- var d2_height             = $div2.outerHeight( true );
- var d2_width              = $div2.outerWidth( true );
+ var d2_offset             = $hole.offset();
+ var d2_height             = $hole.outerHeight( true );
+ var d2_width              = $hole.outerWidth( true );
  var d2_distance_from_top  = d2_offset.top + d2_height;
  var d2_distance_from_left = d2_offset.left + d2_width;
 
