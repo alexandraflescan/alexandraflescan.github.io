@@ -21,7 +21,6 @@ function dragElement(elmnt) {
    pos3 = e.clientX;
    pos4 = e.clientY;
    $(document).on("mouseup touchend", (event) => {
-       console.log("touchend")
        $(document).off("mouseup touchend");
        $(document).off("mousemove touchmove"); 
        closeDragElement();
@@ -48,16 +47,18 @@ function dragElement(elmnt) {
  }
 
  function closeDragElement() {
-   console.log("in close drag element");
-   /* stop moving when mouse button is released:*/
    var t = is_colliding(elmnt, holej) // should return whether they are touching
    if (t) {
-       elmnt.css("top", "20%");
-       elmnt.css("left", "30%");
-       alert("Ai castigat!")
+    showSuccess()
    }
- }
 
+}
+
+function showSuccess() {
+    $(".win-modal").modal('show');
+    elmnt.css("top", "20%");
+    elmnt.css("left", "30%");
+  }
 }
 
   dragElement(movingBallj);
