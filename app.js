@@ -27,10 +27,7 @@ function dragElement(elmnt) {
    // call a function whenever the cursor moves:
   
     movingBall.addEventListener('touchmove',elementDrag, false);
-  
-
-   //$(document).on("mousemove touchmove", (e) => elementDrag());
- 
+   
  }
 
  function elementDrag(e) {
@@ -47,44 +44,41 @@ function dragElement(elmnt) {
 
  function closeDragElement() {
   var t; // should return whether they are touching
-  var circlesList = [];
   let currentCircle;
   $(".circle-hole").each(function() {
     currentCircle = $("#" + $(this)[0].id);
     t = is_colliding(elmnt, currentCircle)
     if (t) {
       if (currentCircle[0].id == holej[0].id) {
-        console.log("you won")
         showSuccess()
         return;
       } else {
         showFailure();
-        console.log("you lost")
         return;
-      }
-      
+      }  
     }
-   console.log(t)
-    circlesList.push($(this)[0].id)  
+
 })
  
   
 }
 
-
+function showModal() {
+  $(".win-modal").modal('show');
+  elmnt.css("top", "75%");
+  elmnt.css("left", "30%");
+}
 
 function showSuccess() {
-    $(".win-modal").modal('show');
+  showModal() 
     $(".winning-text").show();
-    elmnt.css("top", "20%");
-    elmnt.css("left", "30%");
+    $(".losing-text").hide();
   }
 
 function showFailure() {
-  $(".win-modal").modal('show');
+  showModal() 
+  $(".winning-text").hide();
   $(".losing-text").show();
-  elmnt.css("top", "20%");
-  elmnt.css("left", "30%");
 }
 }
 

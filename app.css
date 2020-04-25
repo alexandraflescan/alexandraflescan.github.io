@@ -47,22 +47,33 @@ h1{
     background-color: black;
 }
 
-
+.bad {
+    background-color: red;
+}
 #bad1{
     top: 45%;
     left: 69%;
-    background-color: red;
 }
 #bad2{
     top: 33%;
-    left: 35%;
-    background-color: red;
+    left: 35%; 
 }
 
-#bad2{
-    top: 40%;
-    left: 40%;
-    background-color: red;
+#bad3{
+    top: 77%;
+    left: 43%;
+}
+#bad4{
+    top: 57%;
+    left: 30%;
+}
+#bad5{
+    top: 50%;
+    left: 60%;
+}
+#bad6{
+    top: 64%;
+    left: 15%;
 }
 .modal-footer {
     justify-content: space-between;
